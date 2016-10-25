@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #
-# curl -o- https://gist.githubusercontent.com/YukiYamashina/2b163e5b18b755200e5e1644b8074fc0/raw/install_gcc_on_xserver.sh | bash
+# curl -o- https://raw.githubusercontent.com/YukiYamashina/XSERVER-install-scripts/master/bin/install_gcc_on_xserver.sh | bash
 #
 #
 #----------------------------------------------------------------------

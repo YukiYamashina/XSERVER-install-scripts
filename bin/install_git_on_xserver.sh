@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #
-# curl -o- https://gist.githubusercontent.com/YukiYamashina/49a57969890866341c6cca7e62bfacea/raw/install_git_on_xserver.sh | bash
+# curl -o- https://raw.githubusercontent.com/YukiYamashina/XSERVER-install-scripts/master/bin/install_git_on_xserver.sh | bash
 #
 #
 #----------------------------------------------------------------------
