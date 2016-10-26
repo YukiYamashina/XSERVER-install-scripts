@@ -41,8 +41,6 @@ if [ ! -e ${install_dir}/${target} ]; then
     mkdir build; cd build
     ../configure ${configure_options}
     make check; make install
-    cd ${install_dir}/src
-    rm -rf ${resource}*
 else
     echo "${resource} already installed..."
 fi
@@ -77,8 +75,6 @@ if [ ! -e ${install_dir}/${target} ]; then
     mkdir build; cd build
     ../configure ${configure_options}
     make -s -j2; make check -s -j2; make install
-    cd ${install_dir}/src
-    rm -rf ${resource}*
 else
     echo "${resource} already installed..."
 fi
@@ -112,8 +108,6 @@ if [ ! -e ${install_dir}/${target} ]; then
     mkdir build; cd build
     ../configure ${configure_options}
     make check; make install
-    cd ${install_dir}/src
-    rm -rf ${resource}*
 else
     echo "${resource} already installed..."
 fi
@@ -147,8 +141,6 @@ if [ ! -e ${install_dir}/${target} ]; then
     mkdir build; cd build
     ../configure ${configure_options}
     make check; make install
-    cd ${install_dir}/src
-    rm -rf ${resource}*
 else
     echo "${resource} already installed..."
 fi
@@ -183,8 +175,6 @@ if [ ! -e ${install_dir}/${target} ]; then
     mkdir build; cd build
     ../configure ${configure_options}
     make check; make install
-    cd ${install_dir}/src
-    rm -rf ${resource}*
 else
     echo "${resource} already installed..."
 fi
@@ -218,8 +208,6 @@ if [ ! -e ${install_dir}/${target} ]; then
     mkdir build; cd build
     ../configure ${configure_options}
     make check; make install
-    cd ${install_dir}/src
-    rm -rf ${resource}*
 else
     echo "${resource} already installed..."
 fi
@@ -253,8 +241,6 @@ if [ ! -e ${install_dir}/${target} ]; then
     mkdir build; cd build
     ../configure ${configure_options}
     make; make install
-    cd ${install_dir}/src
-    rm -rf ${resource}*
 else
     echo "${resource} already installed..."
 fi

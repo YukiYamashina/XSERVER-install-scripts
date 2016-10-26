@@ -35,8 +35,6 @@ if [ ! -e ${install_dir}/${target} ]; then
     mkdir build; cd build
     ../configure ${configure_options}
     make; make install
-    cd ${install_dir}/src
-    rm -rf ${resource}*
 else
     echo "${resource} already installed..."
 fi
@@ -67,8 +65,6 @@ if [ ! -e ${install_dir}/${target} ]; then
     mkdir build; cd build
     ../configure ${configure_options}
     make; make install
-    cd ${install_dir}/src
-    rm -rf ${resource}*
 else
     echo "${resource} already installed..."
 fi
@@ -97,9 +93,6 @@ if [ ! -e ${install_dir}/${target} ]; then
     ./configure ${configure_options} CFLAGS="-I${install_dir}/include"
     make -i all
     make -i install
-    cd ${install_dir}/src
-    rm -rf git-master master.zip
-    cd $HOME
 else
     echo "${resource} already installed..."
 fi
