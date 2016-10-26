@@ -224,7 +224,8 @@ resource=gcc
 version=4.9.4
 target=bin/gcc
 resource_uri="http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/${resource}-${version}/${resource}-${version}.tar.gz"
-configure_options="--disable-multilib --enable-languages=c,c++,java --program-suffix=-${version} --prefix=${install_dir} --with-gmp=${install_dir} --with-mpfr=${install_dir} --with-mpc=${install_dir}"
+configure_options="--prefix=${install_dir} --with-gmp=${install_dir} --with-mpfr=${install_dir} --with-mpc=${install_dir} --mandir=${install_dir}/share/man --infodir=${install_dir}/share/info --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-libgcj-multifile --enable-languages=c,c++,objc,obj-c++,java,fortran,ada --enable-java-awt=gtk --disable-dssi --disable-plugin --with-java-home=/usr/lib/jvm/java-1.4.2-gcj-1.4.2.0/jre --with-cpu=generic --host=x86_64-redhat-linux"
+#configure_options="--disable-multilib --enable-languages=c,c++,java --program-suffix=-${version} --prefix=${install_dir} --with-gmp=${install_dir} --with-mpfr=${install_dir} --with-mpc=${install_dir}"
 #
 # http://qiita.com/sirone/items/511c6f68d763dbb66e14
 # https://www.gnu.org/software/gcc/
