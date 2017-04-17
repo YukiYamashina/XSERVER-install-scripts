@@ -23,7 +23,7 @@ export LD_RUN_PATH=${install_dir}/lib
 resource=xz
 version=5.2.2
 target=bin/xz
-resource_uri="http://tukaani.org/xz/${resource}-${version}.tar.gz"
+resource_uri="http://tukaani.org/${resource}/${resource}-${version}.tar.gz"
 configure_options="--prefix=${install_dir} --with-gmp=${install_dir}"
 #
 # http://qiita.com/sirone/items/511c6f68d763dbb66e14
@@ -53,10 +53,42 @@ fi
 #
 #----------------------------------------------------------------------
 #
+resource=binutils
+version=2.27
+target=bin/as
+resource_uri="https://ftp.gnu.org/gnu/${resource}/${resource}-${version}.tar.gz"
+configure_options="--prefix=${install_dir}"
+#
+# https://www.gnu.org/software/binutils/
+#
+#----------------------------------------------------------------------
+#
+if [ ! -e ${install_dir}/${target} ]; then
+    echo "Installing ${resource}-${version}..."
+    cd ${install_dir}/src
+    mkdir ${resource}
+    wget ${resource_uri} -O ${resource}.tar.gz
+    tar -xvzf ${resource}.tar.gz -C ${install_dir}/src/${resource} --strip-components=1
+    cd ${resource}
+    mkdir build; cd build
+    ../configure ${configure_options}
+    make check; make install
+else
+    echo "${resource} already installed..."
+fi
+
+if [ ! -e ${install_dir}/${target} ]; then
+    echo "Failed to install ${resource}, exit..."
+    exit
+fi
+
+#
+#----------------------------------------------------------------------
+#
 resource=gmp
 version=6.1.1
 target=lib/libgmp.a
-resource_uri="https://ftp.gnu.org/gnu/gmp/${resource}-${version}.tar.xz"
+resource_uri="https://ftp.gnu.org/gnu/${resource}/${resource}-${version}.tar.xz"
 configure_options="--prefix=${install_dir} --enable-cxx"
 #
 # http://qiita.com/sirone/items/511c6f68d763dbb66e14
@@ -123,7 +155,7 @@ fi
 resource=mpc
 version=1.0.3
 target=lib/libmpc.a
-resource_uri="ftp://ftp.gnu.org/gnu/mpc/${resource}-${version}.tar.gz"
+resource_uri="ftp://ftp.gnu.org/gnu/${resource}/${resource}-${version}.tar.gz"
 configure_options="--prefix=${install_dir} --with-gmp=${install_dir}"
 #
 # http://qiita.com/sirone/items/511c6f68d763dbb66e14
@@ -250,3 +282,69 @@ if [ ! -e ${install_dir}/${target} ]; then
     echo "Failed to install ${resource}, exit..."
     exit
 fi
+
+#
+#----------------------------------------------------------------------
+#
+resource=texinfo
+version=6.3
+target=bin/chmod
+resource_uri="https://ftp.gnu.org/gnu/${resource}/${resource}-${version}.tar.xz"
+configure_options="--prefix=${install_dir}"
+#
+# https://www.gnu.org/software/texinfo/
+#
+#----------------------------------------------------------------------
+#
+if [ ! -e ${install_dir}/${target} ]; then
+    echo "Installing ${resource}-${version}..."
+    cd ${install_dir}/src
+    mkdir ${resource}
+    wget ${resource_uri} -O ${resource}.tar.xz
+    unxz ${resource}.tar.xz
+    tar -xf ${resource}.tar -C ${install_dir}/src/${resource} --strip-components=1
+    cd ${resource}
+    mkdir build; cd build
+    ../configure ${configure_options}
+    make check; make install
+else
+    echo "${resource} already installed..."
+fi
+
+if [ ! -e ${install_dir}/${target} ]; then
+    echo "Failed to install ${resource}, exit..."
+    exit
+fi
+
+# #
+# #----------------------------------------------------------------------
+# #
+# resource=coreutils
+# version=8.25
+# target=bin/chmod
+# resource_uri="https://ftp.gnu.org/gnu/coreutils/${resource}-${version}.tar.xz"
+# configure_options="--prefix=${install_dir}"
+# #
+# # https://www.gnu.org/software/coreutils/coreutils.html
+# #
+# #----------------------------------------------------------------------
+# #
+# if [ ! -e ${install_dir}/${target} ]; then
+#     echo "Installing ${resource}-${version}..."
+#     cd ${install_dir}/src
+#     mkdir ${resource}
+#     wget ${resource_uri} -O ${resource}.tar.xz
+#     unxz ${resource}.tar.xz
+#     tar -xf ${resource}.tar -C ${install_dir}/src/${resource} --strip-components=1
+#     cd ${resource}
+#     mkdir build; cd build
+#     ../configure ${configure_options}
+#     make check; make install
+# else
+#     echo "${resource} already installed..."
+# fi
+#
+# if [ ! -e ${install_dir}/${target} ]; then
+#     echo "Failed to install ${resource}, exit..."
+#     exit
+# fi
